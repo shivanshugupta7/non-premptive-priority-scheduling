@@ -1,0 +1,136 @@
+import java.util.*;
+import java.util.Arrays;
+
+public class MyClass {
+    public static void main(String args[]) {
+        Scanner input=new Scanner (System.in);
+          char arr[]={'a','b','c','d','e'};
+        
+          int  at[]={0,2,1,1,3,0};
+        
+            int bt[]={20,60,40,50,10};
+              int n=arr.length;
+         
+         int[] prio={2,3,1,4,2};
+         sort(at,bt,prio,n,arr);
+        // print(arr,bt,n,prio,at);
+    }
+         public static void sort(int[] at,int[]bt,int[] prio,int n,char[] arr)
+        {int min=9999;
+            for(int i=0;i<n;i++)
+            {
+                if(min>at[i])
+                {
+                    min=at[i];
+                }
+            }
+            for(int i=0;i<n-1;i++)
+            {
+                for(int j=i+1;j<n;j++)
+                {
+                             if(prio[i]>prio[j])
+                            {
+                                        int temp=at[i];
+                                        at[i]=at[j];
+                                        at[j]=temp;
+                       
+                                        int temp2=bt[i];
+                                        bt[i]=bt[j];
+                                        bt[j]=temp2;
+                       
+                                        char temp3=arr[i];
+                                        arr[i]=arr[j];
+                                        arr[j]=temp3;
+                                        
+                                        int temp4=prio[i];
+                                        prio[i]=prio[j];
+                                        prio[j]=temp4;
+                                        
+                            }
+                            if(prio[i]==prio[j])
+                            {
+                                    if(at[i]>at[j])
+                                    {
+                                         int temp=at[i];
+                                        at[i]=at[j];
+                                        at[j]=temp;
+                       
+                                        int temp2=bt[i];
+                                        bt[i]=bt[j];
+                                        bt[j]=temp2;
+                       
+                                        char temp3=arr[i];
+                                        arr[i]=arr[j];
+                                        arr[j]=temp3;
+                                        
+                                        int temp4=prio[i];
+                                        prio[i]=prio[j];
+                                        prio[j]=temp4;
+                                        
+                        
+                                    }else if(at[i]==at[j])
+                                    {
+                                            if(bt[i]>bt[j])
+                                            {
+                                                 int temp=at[i];
+                                        at[i]=at[j];
+                                        at[j]=temp;
+                       
+                                        int temp2=bt[i];
+                                        bt[i]=bt[j];
+                                        bt[j]=temp2;
+                       
+                                        char temp3=arr[i];
+                                        arr[i]=arr[j];
+                                        arr[j]=temp3;
+                                        
+                                        int temp4=prio[i];
+                                        prio[i]=prio[j];
+                                        prio[j]=temp4;
+                                            }
+                                        
+                                        
+                                    }
+                                
+                                
+                                
+                            }
+                            
+                            
+                    }
+                   
+                    
+                    
+                    
+                    
+            }   
+            
+           
+            
+            System.out.println();
+            int sum=min;
+                    for(int i=0;i<n;i++)
+                    {
+                        for(int j=0;j<n;j++){
+                        
+                           if(sum>=at[j])
+                          {
+                             if(prio[j]!=1000)
+                             {
+                                System.out.print(sum+" "+arr[j]+" ");
+                                sum=sum+bt[j];    
+                                prio[j]=1000;
+                                    j=-1;
+                            
+                            }
+                        }
+                    
+                            }
+                           
+                }
+            
+            System.out.print(sum);
+            
+            
+    }
+}
